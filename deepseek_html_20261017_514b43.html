@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tool Bypass</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2c3e50;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #34495e;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+        }
+        h2 { margin-top: 0; margin-bottom: 20px; color: #3498db; }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        button:hover { background-color: #2980b9; }
+        
+        .link-key {
+            color: #f1c40f;
+            text-decoration: underline;
+            cursor: pointer;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        #bypass-section {
+            display: none;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #7f8c8d;
+        }
+
+        #update-message {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e74c3c;
+            color: white;
+            border-radius: 5px;
+            font-weight: bold;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Hệ Thống Vượt Link</h2>
+        
+        <div id="auth-section">
+            <a href="https://fnote.net/notes/8rp8KV" target="_blank" class="link-key">Lấy Key 3D (Bấm vào đây)</a>
+            <a href="https://fnote.net/notes/6gNv38" target="_blank" class="link-key">Lấy Key VV (Bấm vào đây)</a>
+            
+            <input type="text" id="keyInput" placeholder="Nhập Key của bạn vào đây...">
+            <button onclick="xacThuc()">Xác Thực Key</button>
+        </div>
+
+        <div id="bypass-section">
+            <input type="text" id="linkInput" placeholder="Dán link cần vượt vào đây...">
+            <button onclick="bypassLink()">Bắt Đầu Vượt</button>
+            
+            <div id="update-message">Đang cập nhật...</div>
+        </div>
+    </div>
+
+    <script>
+        function xacThuc() {
+            var key = document.getElementById('keyInput').value.trim();
+            
+            if (key === "") {
+                alert("Bạn chưa nhập Key!");
+                return;
+            }
+
+            var keyVVDung = "mkhuong-vinhvi3n-ddmdk2"; 
+            var key3DDung = "mkhuong-1dskqk239"; 
+
+            // So sánh key
+            if (key === keyVVDung || key === key3DDung) {
+                // Đúng key -> Ẩn phần nhập key, hiện phần bypass
+                document.getElementById('auth-section').style.display = 'none';
+                document.getElementById('bypass-section').style.display = 'block';
+                alert("Xác thực thành công!"); // Thêm câu này để báo cho bạn biết nó đã chạy
+            } else {
+                alert("Key không hợp lệ hoặc đã hết tác dụng!\nBạn đã nhập: " + key);
+            }
+        }
+
+        function bypassLink() {
+            var link = document.getElementById('linkInput').value;
+            
+            if (!link) {
+                alert("Vui lòng nhập link cần vượt!");
+                return;
+            }
+
+            // Hiện chữ đang cập nhật
+            document.getElementById('update-message').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
